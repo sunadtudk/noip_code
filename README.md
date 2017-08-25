@@ -1,6 +1,24 @@
 # noip_code
 The sourcecode for the NOIP service.
+For Ubuntu/Debian...
+You will be able to install No-IP.com’s DUC on Ubuntu in just a few minutes with Terminal. Once you have opened up your Terminal window you will need to login as the “root” user. You can become the root user from the command line by entering “sudo -s” followed by the root password on your machine.
+cd /usr/local/src/
+wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
+tar xf noip-duc-linux.tar.gz
+cd noip-2.1.9-1/
+make install
+You will then be prompted to login with your No-IP.com account username and password.
+If you get “make not found” or “missing gcc” then you do not have the gcc compiler tools on your machine. You will need to install these in order to proceed.
+To Configure the Client
+As root again (or with sudo) issue the below command:
+/usr/local/bin/noip2 -C (dash capital C, this will create the default config file)
+You will then be prompted for your username and password for No-IP, as well as which hostnames you wish to update. Be careful, one of the questions is “Do you wish to update ALL hosts”. If answered incorrectly this could effect hostnames in your account that are pointing at other locations.
+Now the client is installed and configured, you just need to launch it. Simply issue this final command to launch the client in the background:
+/usr/local/bin/noip2
+Read the README file in the no-ip-2.1.9 folder for instructions on how to make the client run at startup. This varies depending on what Linux distribution you are running.
+And you are done! The DUC should now be installed on Ubuntu.
 
+----------------------
 This file describes noip2, a second-generation Linux client for the 
 no-ip.com dynamic DNS service.
 
